@@ -3,6 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import React from 'react';
 import {Linking} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {
   main_title: string;
@@ -10,10 +11,14 @@ type Props = {
 };
 
 const NoticeCard = ({main_title, data}: Props) => {
-  const handleClick = (link: string) => {
+  const navigation = useNavigation();
+  const handleTitleClick = (link: string) => {
     Linking.canOpenURL(link).then(() => {
       return Linking.openURL(link);
     });
+  };
+  const handleDetailClick = () => {
+    navigation.navigate('NoticeDetail' as never, {title: main_title} as never);
   };
   return (
     <VStack
@@ -29,21 +34,30 @@ const NoticeCard = ({main_title, data}: Props) => {
           <Text fontSize={'lg'} fontWeight={700}>
             <Ionicons name="checkmark" size={18} color={'green'} /> {main_title}
           </Text>
-          <Button size={'sm'} variant={'link'} right={0} position={'absolute'}>
+          <Button
+            size={'sm'}
+            variant={'link'}
+            right={0}
+            position={'absolute'}
+            onPress={() => {
+              handleDetailClick();
+            }}>
             {'자세히 보기 >'}
           </Button>
         </HStack>
       </Box>
-      {data.map(({id, title, contentsUrl, _author, _writeDate}: any) => (
-        <Box key={id}>
-          <Text
-            numberOfLines={1}
-            ellipsizeMode="tail"
-            onPress={() => handleClick(contentsUrl)}>
-            {title}
-          </Text>
-        </Box>
-      ))}
+      {data
+        .slice(0, 3)
+        .map(({id, title, contentUrl, _author, _writeDate}: any) => (
+          <Box key={id}>
+            <Text
+              numberOfLines={1}
+              ellipsizeMode="tail"
+              onPress={() => handleTitleClick(contentUrl)}>
+              {title}
+            </Text>
+          </Box>
+        ))}
     </VStack>
   );
 };

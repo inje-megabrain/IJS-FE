@@ -30,13 +30,13 @@ const test: any = {
   Mar: [
     {
       id: 3,
-      title: '신종웅 자퇴일',
+      title: '삼일절',
       startingdate: '2023-03-01',
       endingdate: '2023-03-01',
     },
     {
       id: 4,
-      title: '신종웅 집간날 ',
+      title: '개강일 ',
       startingdate: '2023-03-08',
       endingdate: '2023-03-08',
     },

@@ -13,6 +13,7 @@
 #import <React/RCTSurfacePresenter.h>
 #import <React/RCTSurfacePresenterBridgeAdapter.h>
 #import <ReactCommon/RCTTurboModuleManager.h>
+#import <RNKakaoLogins.h>
 
 #import <react/config/ReactNativeConfig.h>
 
@@ -31,6 +32,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
   RCTAppSetupPrepareApp(application);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
@@ -59,6 +61,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   [self.window makeKeyAndVisible];
   return YES;
 }
+
 
 /// This method controls whether the `concurrentRoot`feature of React18 is turned on or off.
 ///
