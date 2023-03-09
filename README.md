@@ -1,13 +1,13 @@
 <br />
 <div align="center">
 
-  <h1 align="center">Trend In One Front-End</h3>
+  <h1 align="center">인제생 Front-End</h3>
 
   <p align="center">
     <img src="https://skillicons.dev/icons?i=ts,react,emotion">
     <br />
     <br />
-    <strong>Skill: Typescript, React, Emotion, Native-base, React-Query	</strong>
+    <strong>Skill: Typescript, React-Native, Emotion, Native-base, React-Query	</strong>
 
   </p>
 </div>
